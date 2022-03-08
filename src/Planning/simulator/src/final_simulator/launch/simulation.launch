@@ -1,0 +1,37 @@
+<launch>
+
+  <arg name="path" default="$(find final_simulator)/csv" />
+  <arg name="ns1" default="sim" />
+  <arg name="init_lon" default="126.77293315415" /> <!--K-city-->
+  <arg name="init_lat" default="37.23888765866" />
+  <arg name="init_lon_next" default="126.77293374861" />
+  <arg name="init_lat_next" default="37.23888844315" />
+  <!--arg name="init_lon" default="127.07797413886" /--> <!--Konkuk-->
+  <!--arg name="init_lat" default="37.54315636493" /-->
+  <!--arg name="init_lon_next" default="127.07797397222" /-->
+  <!--arg name="init_lat_next" default="37.54315547394" /-->
+  
+  <arg name="lookAhead" default="3.0" />
+  <arg name="ROIFront" default="20.0"/>
+  <arg name="ROIRear" default="5.0"/>
+  <arg name="ROILeft" default="4.0"/>
+  <arg name="ROIRight" default="4.0"/>
+
+  <group ns="$(arg ns1)">
+    <node pkg="final_autonomous_driving" type="autonomous_driving" name="autonomous_driving" output="screen">
+      <param name="ns" value="$(arg ns1)"/>
+      <param name="lookAhead" value="$(arg lookAhead)"/>
+    </node>
+    <node pkg="final_simulator" type="sim_vehicle" name="sim_vehicle" output="screen">
+      <param name="ns" value="$(arg ns1)"/>
+      <param name="init_lon" value="$(arg init_lon)" />
+      <param name="init_lat" value="$(arg init_lat)" />
+      <param name="init_lon_next" value="$(arg init_lon_next)" />
+      <param name="init_lat_next" value="$(arg init_lat_next)" />
+    </node>
+    <node pkg="final_simulator" type="sim_display" name="sim_display" output="screen"/>
+  </group>
+</launch>
+
+	
+

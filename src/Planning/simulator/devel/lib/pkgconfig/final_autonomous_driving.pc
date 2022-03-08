@@ -1,0 +1,8 @@
+prefix=/home/d/IDPLab-ADP/src/Planning/simulator/devel
+
+Name: final_autonomous_driving
+Description: Description of final_autonomous_driving
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib -lfinal_autonomous_driving
+Requires: roscpp std_msgs

@@ -1,0 +1,2 @@
+autonomous_msg:final_autonomous_driving:final_simulator:kusv_msgs
+-DCATKIN_DEVEL_PREFIX=/home/d/IDPLab-ADP/src/Planning/simulator/devel -DCMAKE_INSTALL_PREFIX=/home/d/IDPLab-ADP/src/Planning/simulator/install -G Unix Makefiles
